@@ -105,6 +105,7 @@ button:hover {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .gallery-item img {
@@ -113,6 +114,13 @@ button:hover {
   object-fit: cover;
   border-radius: 4px;
 }
+
+.gallery-item:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 .gallery-date {
   margin-top: 12px;
@@ -125,6 +133,74 @@ button:hover {
   font-size: 18px;
   line-height: 1.35;
   color: #212121;
+}
+
+.gallery-item:focus-visible {
+  outline: 3px solid #1b6ec2;
+  outline-offset: 3px;
+}
+
+/* Image details modal */
+.image-modal {
+  width: min(900px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  color: #212121;
+  background: white;
+}
+
+.image-modal::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: relative;
+  overflow-y: auto;
+  max-height: calc(100vh - 32px);
+  padding: 24px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-image {
+  display: block;
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  background: #111;
+}
+
+.image-modal h2 {
+  margin-top: 6px;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.modal-explanation {
+  margin-top: 16px;
+  line-height: 1.6;
+  white-space: pre-line;
 }
 
 /* Placeholder content */

@@ -6,6 +6,20 @@ const searchBtn = document.getElementById("getImagesButton");
 const galleryElement = document.getElementById("gallery");
 const placeholderElement = galleryElement.querySelector(".placeholder");
 const placeholderMessage = placeholderElement.querySelector(".placeholder-message");
+const imageModal = document.getElementById("imageModal");
+const modalCloseButton = document.getElementById("modalCloseButton");
+const modalImage = document.getElementById("modalImage");
+const modalDate = document.getElementById("modalDate");
+const modalTitle = document.getElementById("modalTitle");
+const modalExplanation = document.getElementById("modalExplanation");
+
+modalCloseButton.addEventListener("click", () => imageModal.close());
+imageModal.addEventListener("click", event => {
+  if (event.target === imageModal) {
+    imageModal.close();
+  }
+});
+
 // Call the setupDateInputs function from dateRange.js
 // This sets up the date pickers to:
 // - Default to a range of 9 days (from 9 days ago to today)
@@ -32,9 +46,12 @@ async function fetchImages() {
   try {
     const response = await fetch(`https://science.nasa.gov/wp-json/wp/v2/apod-basic?date_from=${dateFrom}&date_to=${dateTo}`);
     
+    //console.log(`response`, response);
+
     if (!response.ok) {
       throw new Error("Failed to fetch images");
     }
+    
     const data = await response.json();
 
     // Keep only picture results and show no more than nine.
@@ -49,8 +66,13 @@ async function fetchImages() {
 
     placeholderElement.classList.add("hidden");
     images.forEach(item => {
-      const card = document.createElement("article");
+      const card = document.createElement("article"); // create a new <article> element for the gallery item
       card.className = "gallery-item";
+
+      card.tabIndex = 0; // Make the card focusable via keyboard navigation.
+      card.setAttribute("role", "button"); // Indicate that the card is interactive and behaves like a button.
+      card.setAttribute("aria-haspopup", "dialog"); // Indicate that the card opens a dialog when activated.
+      card.setAttribute("aria-controls", "imageModal"); // Indicate that the card controls the image modal.
 
       const image = document.createElement("img");
       image.src = item.hdurl;
@@ -64,13 +86,37 @@ async function fetchImages() {
       title.textContent = item.title || "Untitled space image";
 
       card.append(image, date, title);
+
+      // Add click and keydown event listeners to the card to open the image modal
+      card.addEventListener("click", () => openImageModal(item));
+      // Add keydown event listener to the card to open the image modal when Enter or Space is pressed
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openImageModal(item);
+        }
+      });
+
+      // Append the card to the gallery element
       galleryElement.appendChild(card);
+
     });
   } catch (error) {
     placeholderMessage.textContent = `Unable to load space images: ${error.message}`;
   }
 }
 
+function openImageModal(item) {
+  modalImage.src = item.hdurl;
+  modalImage.alt = item.title || "NASA space image";
+  modalDate.textContent = item.date || "Date unavailable";
+  modalTitle.textContent = item.title || "Untitled space image";
+  const explanation = item.explanation || "No explanation is available for this image.";
+  // Use innerHTML to allow HTML content in the explanation.
+  modalExplanation.innerHTML = explanation;
+
+  imageModal.showModal();
+}
 
 
 
