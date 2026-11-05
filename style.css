@@ -5,14 +5,10 @@
   padding: 0;
 }
 
-
-
 /* Base page styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #061f4a
-
-;
+  background-color: #061f4a;
   padding: 20px;
 }
 
@@ -87,6 +83,7 @@ button {
   color: white;
   cursor: pointer;
 }
+
 button:hover {
   background-color: #99231b;
 }
@@ -104,6 +101,7 @@ button:hover {
   }
 }
 
+/* Fun fact section */
 .fun-fact {
   background-color: #0b2e6f;
   color: #fff;
@@ -160,7 +158,6 @@ button:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .gallery-date {
   margin-top: 12px;
@@ -225,7 +222,9 @@ button:hover {
   background: rgba(0, 0, 0, 0.9);
 }
 
-.modal-image {
+/* Modal media */
+.modal-image,
+.modal-video {
   display: block;
   width: 100%;
   max-height: 65vh;
@@ -233,6 +232,29 @@ button:hover {
   background: #111;
 }
 
+/* Video modal */
+.modal-video {
+  height: 65vh;
+}
+
+.gallery-video {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 4px;
+  background: #111;
+}
+
+.video-fallback {
+  display: block;
+  padding: 24px;
+  border-radius: 4px;
+  background: #0b2e6f;
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* Modal text content */
 .image-modal h2 {
   margin-top: 6px;
   font-size: 22px;
@@ -267,6 +289,7 @@ button:hover {
   margin-bottom: 20px;
 }
 
+/* Loading indicator */
 .loading {
   display: flex;
   align-items: center;
