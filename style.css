@@ -5,10 +5,14 @@
   padding: 0;
 }
 
+
+
 /* Base page styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
+  background-color: #061f4a
+
+;
   padding: 20px;
 }
 
@@ -16,6 +20,18 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.circleLogo {
+  display: flex;
+  width: 140px;
 }
 
 /* Header */
@@ -29,9 +45,9 @@ body {
 }
 
 h1 {
-  font-family: Verdana, sans-serif;
+  font-family: "Inter", Helvetica, sans-serif;
   font-weight: bold;
-  color: #212121;
+  color: #fff;
 }
 
 /* Logo */
@@ -53,7 +69,7 @@ h1 {
 /* Inputs and buttons */
 input[type="date"],
 button {
-  font-family: Arial, sans-serif;
+  font-family: "Public Sans", Helvetica, sans-serif;
   font-weight: normal;
   color: #666;
   padding: 10px 15px;
@@ -66,12 +82,13 @@ button {
 
 /* Button specific */
 button {
-  background-color: #d3d3d3;
-  color: black;
+  border: 0;
+  background-color: #c62d1f;
+  color: white;
   cursor: pointer;
 }
 button:hover {
-  background-color: #bfbfbf;
+  background-color: #99231b;
 }
 
 /* Stack horizontally on wider screens */
@@ -126,6 +143,7 @@ button:hover {
   margin-top: 12px;
   font-size: 14px;
   color: #666;
+  font-family: DM MONO, Helvetica, sans-serif;
 }
 
 .gallery-item h2 {
@@ -133,6 +151,7 @@ button:hover {
   font-size: 18px;
   line-height: 1.35;
   color: #212121;
+  font-family: "Inter", Helvetica, sans-serif;
 }
 
 .gallery-item:focus-visible {
@@ -195,12 +214,20 @@ button:hover {
   margin-top: 6px;
   font-size: 22px;
   line-height: 1.35;
+  font-family: Inter, Helvetica, sans-serif;
+}
+
+.gallery-date, .modal-date {
+  margin-top: 6px;
+  font-size: 14px;
+  font-family: DM MONO, Helvetica, sans-serif;
 }
 
 .modal-explanation {
   margin-top: 16px;
   line-height: 1.6;
   white-space: pre-line;
+  font-family: Public Sans, Helvetica, sans-serif;
 }
 
 /* Placeholder content */
@@ -208,7 +235,8 @@ button:hover {
   flex: 1 1 100%;
   text-align: center;
   padding: 40px;
-  color: #666;
+  color: #fff;
+  font-family: Public Sans, Helvetica, sans-serif;
 }
 
 .placeholder-icon {

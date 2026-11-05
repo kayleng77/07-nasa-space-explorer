@@ -6,6 +6,7 @@ const searchBtn = document.getElementById("getImagesButton");
 const galleryElement = document.getElementById("gallery");
 const placeholderElement = galleryElement.querySelector(".placeholder");
 const placeholderMessage = placeholderElement.querySelector(".placeholder-message");
+const placeholderIcon = placeholderElement.querySelector(".placeholder-icon");
 const imageModal = document.getElementById("imageModal");
 const modalCloseButton = document.getElementById("modalCloseButton");
 const modalImage = document.getElementById("modalImage");
@@ -40,6 +41,7 @@ async function fetchImages() {
 
   // Show the loading message and remove images from the previous search.
   placeholderElement.classList.remove("hidden");
+  placeholderIcon.classList.add("hidden");
   placeholderMessage.textContent = "Fetching space images...";
   galleryElement.querySelectorAll(".gallery-item").forEach(card => card.remove());
 
