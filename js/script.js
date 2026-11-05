@@ -14,6 +14,24 @@ const modalDate = document.getElementById("modalDate");
 const modalTitle = document.getElementById("modalTitle");
 const modalExplanation = document.getElementById("modalExplanation");
 
+const funFacts = [
+  "The Hubble Space Telescope has been in operation for over 30 years, capturing stunning images of the universe.",
+  "The James Webb Space Telescope, launched in December 2021, is designed to observe the universe in infrared light.",
+  "Mars has the largest volcano in the solar system, Olympus Mons, which is about three times the height of Mount Everest.",
+  "The Milky Way galaxy contains an estimated 100 to 400 billion stars.",
+  "Black holes are regions of space where gravity is so strong that nothing, not even light, can escape from them.",
+  "Saturn is less dense than water! If you could find a bathtub big enough, the ringed planet would float.",
+  "Getty Ethyl formate, which gives raspberries their flavour and smells of rum, has now been found in deep space. The center of the galaxy tastes like raspberries and smells of rum.",
+  "Neutron stars are so dense that a sugar-cube-sized amount of material from one would weigh about a billion tons on Earth.",
+  "The observable universe is estimated to be around 93 billion light-years in diameter."
+];
+
+// Display a random fun fact on page load
+window.addEventListener("load", () => {
+  const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+  document.getElementById("funFactText").textContent = randomFact;
+});
+
 modalCloseButton.addEventListener("click", () => imageModal.close());
 imageModal.addEventListener("click", event => {
   if (event.target === imageModal) {

@@ -41,7 +41,7 @@ body {
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -102,6 +102,29 @@ button:hover {
   button {
     width: auto;
   }
+}
+
+.fun-fact {
+  background-color: #0b2e6f;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.fun-fact h3 {
+  padding: 10px;
+  font-family: "Inter", Helvetica, sans-serif;
+  font-size: 20px;
+  color: #c62d1f;
+}
+
+.fun-fact p {
+  font-family: "Public Sans", Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
 /* Gallery grid adjusts the number of columns to fit the screen. */
